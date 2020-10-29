@@ -12,29 +12,33 @@ $(document).on('keypress', function() {
     }
 })
 
+// Clicking on the screen to start the game
+$('body').on('click', function() {
+    if (isGameOn === false) {
+        gameStart()
+    }
+})
+
 // Accepting the player input based on the pattern to follow
 $('.btn').on('click', function() {
-    if (isGameOn === true) {
-        animateButton($(this))
-        produceButtonSound($(this).attr('id'))
-        const element = patternToFollow[clickCount];
-        var clickedBox = $(this).attr('id')
+    animateButton($(this))
+    produceButtonSound($(this).attr('id'))
+    const element = patternToFollow[clickCount];
+    var clickedBox = $(this).attr('id')
 
-        if (clickedBox === element) {
-            clickCount++
-            
-            if (clickCount === patternToFollow.length) {
-                gameLevel++
-                setTimeout(() => {
-                    showTheCurrentBox()
-                }, 700);
-                clickCount = 0
-            }
-        } else {
-            gameOver()
+    if (clickedBox === element) {
+        clickCount++
+        
+        if (clickCount === patternToFollow.length) {
+            gameLevel++
+            setTimeout(() => {
+                showTheCurrentBox()
+            }, 700);
+            clickCount = 0
         }
+    } else {
+        gameOver()
     }
-
 })
 
 
