@@ -15,7 +15,7 @@ $(document).on('keypress', function() {
 // Clicking on the screen to start the game
 $('body').on('click', function() {
     if (isGameOn === false) {
-        gameStart()
+        // gameStart()
     }
 })
 
@@ -31,6 +31,7 @@ $('.btn').on('click', function() {
         
         if (clickCount === patternToFollow.length) {
             gameLevel++
+            // Set High Score
             setTimeout(() => {
                 showTheCurrentBox()
             }, 700);
